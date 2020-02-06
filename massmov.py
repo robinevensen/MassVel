@@ -94,4 +94,6 @@ while run:
 
     pygame.display.update()
 
+    print("gittest")
+
 pygame.quit()

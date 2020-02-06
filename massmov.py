@@ -54,8 +54,8 @@ myfont = pygame.font.SysFont('Times New Roman', 15)
 # where u1 and u2 is initial velocity, solve for v1 and v2
 # A*[x1 x2] = b
 #
-A = np.array([[1, -1], [m1, m2]])
-b = np.array([0, mvm1 + mvm2])
+A = np.array([[1, -1], [m1obj.mass, m2obj.mass]])
+b = np.array([0, m1obj.mv + m2obj.mv])
 x = solve(A, b)
 
 run = True
@@ -67,8 +67,8 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-    x1_init += velm1
-    x2_init += velm2
+    x1_init += m1obj.vel
+    x2_init += m2obj.vel
 
     # Text for m1
     m1_mass_text = myfont.render("M1 mass: " + str(m1), True, black)
@@ -94,6 +94,6 @@ while run:
 
     pygame.display.update()
 
-    print("gittest")
+
 
 pygame.quit()

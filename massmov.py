@@ -13,6 +13,7 @@ pygame.display.set_caption("First Game")
 
 test_txt_box = TextInput()
 
+greybg = (100, 100, 100)
 white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 128)
@@ -88,7 +89,7 @@ while run:
 
 
 
-    win.fill(white)
+    win.fill(greybg)
     win.blit(m1_mass_text, (0, 0))
     win.blit(m1_initvel_text, (0, 15))
     win.blit(m1_vel_text, (0, 30))

@@ -1,6 +1,7 @@
 import pygame
 import math
 import numpy as np
+from classes.text_box_class import TextInput
 from numpy.linalg import solve
 from classes.MassvelClass import massobj
 
@@ -9,6 +10,8 @@ pygame.init()
 win = pygame.display.set_mode((1500, 800))
 
 pygame.display.set_caption("First Game")
+
+test_txt_box = TextInput()
 
 white = (255, 255, 255)
 green = (0, 255, 0)
@@ -80,6 +83,10 @@ while run:
     m2_init_text = myfont.render("M2 initial velocity: " + str(velm2), True, black)
     m2_vel_text = myfont.render("M2 velocity: " + str(x[1]), True, black)
 
+    #New test textbox
+    test_txt_box.update(pygame.event.get())
+
+
 
     win.fill(white)
     win.blit(m1_mass_text, (0, 0))
@@ -88,12 +95,12 @@ while run:
     win.blit(m2_mass_text, (0, 45))
     win.blit(m2_init_text, (0, 60))
     win.blit(m2_vel_text, (0, 75))
+    win.blit(test_txt_box.get_surface(), (200, 200))
 
     pygame.draw.rect(win, (255, 0, 0), (x1_init, y1_init, width, heigth))
     pygame.draw.rect(win, (255, 0, 0), (x2_init, y2_init, width, heigth))
 
     pygame.display.update()
-
 
 
 pygame.quit()
